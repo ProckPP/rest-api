@@ -10,6 +10,10 @@ from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.settings import api_settings
+
+
+
 from rest_framework import filters
 from . import serializers
 from . import models
@@ -152,3 +156,8 @@ class UserProfileFeedViewSet(viewsets.ModelViewSet):
         """Sets the user profile to the logged in user."""
 
         serializer.save(user_profile=self.request.user)
+
+
+class UserLoginApiView(ObtainAuthToken):
+    """Handle creating user authentication tokens"""
+    renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
