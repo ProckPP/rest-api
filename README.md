@@ -1,3 +1,3 @@
 # Profiles Rest API
 
-This is a restapi on prfiles.
+This is a rest-Api on profiles.
